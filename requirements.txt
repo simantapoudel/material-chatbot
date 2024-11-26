@@ -1,0 +1,8 @@
+langchain-community==0.2.17
+langchain-experimental
+elasticsearch
+xmltodict
+langchain-elasticsearch==0.2.2
+sentence_transformers
+python-dotenv==1.0.1
+gradio

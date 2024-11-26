@@ -1,0 +1,10 @@
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatbot-app
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
