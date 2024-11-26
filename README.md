@@ -52,7 +52,7 @@ git clone https://github.com/simantapoudel/material-chatbot.git
 cd material-chatbot
 ```
 
-#### 2. Configure Environment Variables (Already provided to make it easier for you)
+#### 2. Configure Environment Variables (<font color="red">Skip this step</font> as it is already provided to make it easier for you)
 
 Create a `.env` file in the project root with the following variables:
 
@@ -128,7 +128,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-#### 4. Configure Environment Variables
+#### 4. Configure Environment Variables (<font color="red">Skip this step</font> as it is already provided to make it easier for you)
 
 Create a `.env` file in the project root with the following variables:
 
