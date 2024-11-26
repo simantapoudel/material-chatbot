@@ -1,9 +1,9 @@
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import Ollama
 import re
-from processing import vector_store
+from vector_store import elasticsearch_vector_store
 
-llm = Ollama(model="llama3.2:1b", base_url="https://llm.bicbioeng.org")
+llm = Ollama(model="llama3.2:3b", base_url="https://llm.bicbioeng.org")
 
 #Prompt template to include conversation history
 prompt = PromptTemplate(
@@ -85,13 +85,13 @@ def ask_question(query, history):
         filter_criteria = [{"term": {"metadata.material_id.keyword": extracted_question}}]
 
     if filter_criteria:
-        results = vector_store.similarity_search_with_score(
+        results = elasticsearch_vector_store.similarity_search_with_score(
             query=extracted_question,
             k=k,
             filter=filter_criteria
         )
     else:
-        results = vector_store.similarity_search_with_score(query=extracted_question, k=k)
+        results = elasticsearch_vector_store.similarity_search_with_score(query=extracted_question, k=k)
 
     context = "\n".join(doc.page_content for doc, _ in results)
 

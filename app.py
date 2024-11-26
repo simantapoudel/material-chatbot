@@ -20,8 +20,8 @@ with gr.Blocks(title="Materials Data AI Chatbot") as interface:
     )
 
     conversation_state = gr.State(value=[])
-
-    clear = gr.ClearButton([user_input, chatbot])
+    submit_button = gr.Button("Submit")
+    clear = gr.ClearButton([user_input, chatbot, conversation_state])
 
     def handle_conversation(user_query, history):
         if not history:
@@ -41,7 +41,11 @@ with gr.Blocks(title="Materials Data AI Chatbot") as interface:
         outputs=[user_input, chatbot, conversation_state],
     )
 
-    examples = gr.Examples(examples=["mp-555698", "mp-1197331"], inputs=[user_input])
+    submit_button.click(
+        handle_conversation,
+        inputs=[user_input, conversation_state],
+        outputs=[user_input, chatbot, conversation_state],
+    )
 
 # Launch the Gradio app
 if __name__ == "__main__":
