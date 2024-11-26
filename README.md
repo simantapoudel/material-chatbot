@@ -38,8 +38,8 @@ Ensure you have the following installed:
 #### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/simantapoudel/materials-data-chatbot.git
-cd materials-data-chatbot
+git clone https://github.com/simantapoudel/material-chatbot.git
+cd material-chatbot
 ```
 
 #### 3. Configure Environment Variables (Already provided to make it easier for you)
@@ -94,8 +94,8 @@ Ensure you have the following installed:
 #### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/simantapoudel/materials-data-chatbot.git
-cd materials-data-chatbot
+git clone https://github.com/simantapoudel/material-chatbot.git
+cd material-chatbot
 ```
 
 #### 3. Create a Virtual Environment
@@ -118,7 +118,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-#### 5. Configure Environment Variables
+#### 5. Configure Environment Variables (Already provided to make it easier for you)
 
 Create a `.env` file in the project root with the following variables:
 
