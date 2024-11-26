@@ -13,36 +13,37 @@ The Materials Data AI Chatbot is an intelligent conversational interface designe
 - Semantic search capabilities
 - Conversation history tracking
 
-## Prerequisites
+## Interaction Options
 
-Before setting up the chatbot, ensure you have the following:
+You have multiple ways to interact with the Materials Data AI Chatbot:
 
-- Docker and Docker Compose (recommended)
-- Materials Project API Key
-- Elasticsearch setup
-- Access to an LLM (Large Language Model) endpoint
+### Option 1: Online Web Interface
 
-## Installation Options
+Visit the Hugging Face Spaces hosted version of the chatbot:
+- **Link**: [https://huggingface.co/spaces/Simanta100/material-chatbot](https://huggingface.co/spaces/Simanta100/material-chatbot)
 
-You have two options for setting up the Materials Data AI Chatbot:
+**Advantages**:
+- No installation required
+- Instant access
+- Cloud-hosted environment
 
-### Option 1: Docker Deployment (Recommended)
+### Option 2: Docker Deployment (Recommended for Local Setup)
 
-#### 1. Prerequisites
+#### Prerequisites
 
 Ensure you have the following installed:
 - Docker
 - Docker Compose
 - Git
 
-#### 2. Clone the Repository
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/simantapoudel/material-chatbot.git
-cd material-chatbot
+cd materials-data-chatbot
 ```
 
-#### 3. Configure Environment Variables (Already provided to make it easier for you)
+#### 2. Configure Environment Variables (Already provided to make it easier for you)
 
 Create a `.env` file in the project root with the following variables:
 
@@ -56,7 +57,7 @@ ELASTICSEARCH_USERNAME=your_elasticsearch_username
 ELASTICSEARCH_PASSWORD=your_elasticsearch_password
 ```
 
-#### 4. Build and Run with Docker Compose
+#### 3. Build and Run with Docker Compose
 
 ```bash
 # Build and start the application
@@ -66,12 +67,12 @@ docker-compose up --build
 docker-compose up -d --build
 ```
 
-#### 5. Access the Chatbot
+#### 4. Access the Chatbot
 
 Open a web browser and navigate to:
 - `http://localhost:7860`
 
-#### 6. Stopping the Application
+#### 5. Stopping the Application
 
 ```bash
 # Stop and remove containers
@@ -81,9 +82,9 @@ docker-compose down
 docker-compose down -v
 ```
 
-### Option 2: Traditional Local Setup
+### Option 3: Traditional Local Setup
 
-#### 1. Prerequisites
+#### Prerequisites
 
 Ensure you have the following installed:
 - Python 3.8 or higher
@@ -91,14 +92,14 @@ Ensure you have the following installed:
 - Git
 - Virtual environment tool (venv recommended)
 
-#### 2. Clone the Repository
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/simantapoudel/material-chatbot.git
-cd material-chatbot
+cd materials-data-chatbot
 ```
 
-#### 3. Create a Virtual Environment
+#### 2. Create a Virtual Environment
 
 ```bash
 # Create virtual environment
@@ -112,13 +113,13 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-#### 4. Install Dependencies
+#### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 5. Configure Environment Variables (Already provided to make it easier for you)
+#### 4. Configure Environment Variables
 
 Create a `.env` file in the project root with the following variables:
 
@@ -132,7 +133,7 @@ ELASTICSEARCH_USERNAME=your_elasticsearch_username
 ELASTICSEARCH_PASSWORD=your_elasticsearch_password
 ```
 
-#### 6. Prepare the Vector Database (Skip this step as vector database is already prepared and stored in elasticsearch)
+#### 5. Prepare the Vector Database (Skip this step as vector database is already prepared and stored in elasticsearch)
 
 Before running the chatbot, process and index the materials data:
 
@@ -140,7 +141,7 @@ Before running the chatbot, process and index the materials data:
 python processing.py
 ```
 
-#### 7. Run the Chatbot (Skip 6 and do this)
+#### 6. Run the Chatbot
 
 ```bash
 python app.py
@@ -175,15 +176,12 @@ The chatbot supports various types of queries:
 2. `ask_llm.py`: AI-powered query processing and response generation
 3. `processing.py`: Data ingestion, chunking, and vector storage
 
-## Customization
-
-### Changing the LLM
-Modify the `llm` initialization in `ask_llm.py` to use a different language model.
-
-### Adjusting Chunk Size
-In `processing.py`, modify the `RecursiveCharacterTextSplitter` parameters to change document chunking behavior.
-
 ## Troubleshooting
+
+### Online Interface
+- Check internet connectivity
+- Refresh the Hugging Face Spaces page
+- Ensure you're using a modern web browser
 
 ### Docker Deployment
 - Ensure Docker and Docker Compose are correctly installed
@@ -193,10 +191,13 @@ In `processing.py`, modify the `RecursiveCharacterTextSplitter` parameters to ch
 ### Local Setup
 - Confirm Python and pip versions
 - Ensure virtual environment is activated
+- Verify Elasticsearch and LLM endpoint connectivity
+- Check Materials Project API key permissions
 
 ## Acknowledgements
 
-- Materials Project for providing the materials database
-- Bioeng lab for providing Ollama for the language model
+- Materials Project for providing the materials data
+- BioEngineering lab for Ollama for the language model
 - Langchain for AI integration
 - Gradio for the web interface
+- Hugging Face for hosting the online interface
